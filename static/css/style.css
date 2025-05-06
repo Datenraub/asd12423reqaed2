@@ -1,0 +1,23 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background: #111;
+    color: #fff;
+    padding: 20px;
+}
+.container {
+    max-width: 800px;
+    margin: auto;
+}
+input, button {
+    margin: 5px 0;
+    padding: 8px;
+    width: 100%;
+}
+button {
+    background: #444;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+ul.messages { color: lime; }

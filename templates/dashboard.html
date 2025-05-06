@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Discord Admin Dashboard</h1>
+        
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul class="messages">
+              {% for message in messages %}
+                <li>{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+
+        <form action="/add_token" method="post">
+            <input type="text" name="token" placeholder="Neuer Token" required>
+            <button type="submit">Token hinzufügen</button>
+        </form>
+
+        <form action="/add_spruch" method="post">
+            <input type="text" name="spruch" placeholder="Neuer Spruch" required>
+            <button type="submit">Spruch hinzufügen</button>
+        </form>
+
+        <form action="/spam" method="post">
+            <input type="text" name="channel" placeholder="Channel-ID" required>
+            <input type="text" name="message" placeholder="Nachricht" required>
+            <button type="submit">Spam starten</button>
+        </form>
+
+        <h2>Tokens:</h2>
+        <ul>
+            {% for token in tokens %}
+                <li>{{ token }}</li>
+            {% endfor %}
+        </ul>
+
+        <h2>Sprüche:</h2>
+        <ul>
+            {% for spruch in sprueche %}
+                <li>{{ spruch }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
